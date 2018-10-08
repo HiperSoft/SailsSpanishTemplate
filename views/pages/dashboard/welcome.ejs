@@ -1,0 +1,39 @@
+<div id="welcome">
+  <div class="container">
+    <h1>Bienvenido!</h1>
+    <hr/>
+<p>Esta es una página que solo las personas que han iniciado sesión pueden visitar. ¿No te sientes especial? Intente
+  hacer clic en el botón de abajo para hacer algunas cosas que no puede hacer cuando se desconecta.</p>
+    <div class="buttons">
+      <a class="btn btn-info" href="/account/profile">Actualizar correo electrónico</a>
+      <button class="btn btn-outline-info ml-2" @click="clickOpenDashboardModalButton()">Open a modal</button>
+    </div>
+  </div>
+
+  <modal class="example-modal" v-if="dashboardModalVisible" @close="closeDashboardModal()" v-cloak>
+    <div class="modal-header">
+      <h2 class="modal-title">Modal ejemplo</h2>
+<p>En su tiempo libre, lea detenidamente este extracto de un cuento de una ballena.</p>
+      <hr/>
+      <button type="button" class="modal-close-button" data-dismiss="modal" aria-label="Close"></button>
+    </div>
+    <div class="modal-body">
+<h5 class="section-heading">Capítulo 1: Telar.</h5>
+<p>Llamame ismael Hace algunos años, sin importar cuánto tiempo, teniendo poco o nada de dinero en mi bolso, y nada
+  especial que me interese en la costa, pensé que navegaría un poco y vería la parte acuosa del mundo. Es una forma que
+  tengo de sacar el bazo y regular la circulación. Cada vez que me encuentro cada vez más triste por la boca; siempre
+  que sea un noviembre húmedo y lluvioso en mi alma; cada vez que me encuentro haciendo una pausa involuntaria ante los
+  almacenes de ataúdes y levantando la retaguardia de cada funeral que conozco; y especialmente cada vez que mi hipo me
+  da tanta ventaja, que requiere un fuerte principio moral para evitar que salga deliberadamente a la calle y me quite
+  los sombreros de la gente metódicamente. Entonces, es hora de llegar al mar tan pronto como sea posible. como puedo.
+  Este es mi sustituto de la pistola y la pelota. Con un ademán filosófico, Catón se arroja sobre su espada; Me llevo
+  tranquilamente a la nave. No hay nada sorprendente en esto. Si lo supieran, casi todos los hombres en su grado, en
+  algún momento u otro, guardan casi los mismos sentimientos hacia el océano conmigo.</p>
+    </div>
+    <div class="modal-footer flex-row-reverse justify-content-between">
+      <button type="button" data-dismiss="modal" class="btn btn-info">Cerrar</button>
+      <button type="button" data-dismiss="modal" class="btn btn-outline-info">Cancelar</button>
+    </div>
+  </modal>
+</div>
+<%- /* Expose locals as `window.SAILS_LOCALS` :: */ exposeLocalsToBrowser() %>

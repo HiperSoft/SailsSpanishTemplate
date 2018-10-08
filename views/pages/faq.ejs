@@ -1,0 +1,185 @@
+<div id="faq">
+  <div class="container">
+    <h1>FAQ</h1>
+    <div class="q-and-a">
+      <hr/>
+      <h4>¿Que hay en esta pagina?</h4>
+<p> Esta es una plantilla para crear su propia página de "Preguntas frecuentes". Se generó automáticamente como parte
+  de la aplicación semilla expandida proporcionada por <a href="https://sailsjs.com/about"> Sails </a>. Además de su
+  propósito principal como plantilla, esta página se duplica como una guía práctica sobre la aplicación semilla en sí
+  misma. </p>
+      <p> <small> Antes de implementar esta aplicación en producción, asegúrese de reemplazar el contenido de esta
+    página con preguntas y respuestas reales que sean relevantes para su proyecto. O si no necesita una pregunta
+    frecuente, simplemente elimine este archivo por completo. </small> </p>
+    </div>
+    <div class="q-and-a">
+        
+  <hr />
+        <h4> Aparte de Sails, ¿en qué tecnologías, marcos o servicios depende esta aplicación? </h4>
+        <p> Esta aplicación incluye varias herramientas e integraciones que usamos con frecuencia sobre Sails. Han
+    funcionado bien para nosotros en el pasado; lo que nos permite centrarnos en desarrollar nuevas funciones con una
+    sobrecarga mínima. Algunos son archivos que hemos enrollado nosotros mismos, y el resto son servicios y marcos de
+    terceros. Si bien un par de estos requerirán que cree una cuenta (u obtenga una clave API, etc.), queremos
+    enfatizar que solo incluimos herramientas confiables y confiables que nos sentimos cómodos de usar en nuestros
+    propios proyectos y en los proyectos de nuestros clientes. . </p>
+        <ul>
+        <li><a target="_blank" href="http://getbootstrap.com/docs/4.0/getting-started/introduction/"><strong>Bootstrap 4</strong></a> - Front-end component library</li>
+        <li><a target="_blank" href="http://fontawesome.io/icons/"><strong>Font Awesome 4</strong></a> - Icons</li>
+        <li><a target="_blank" href="https://vuejs.org/"><strong>Vue.js</strong></a> - Front-end framework</li>
+        <li><a target="_blank" href="https://npmjs.com/package/parasails"><strong>parasails.js</strong></a> - Thin layer of bundled conventions for using Vue.js with Sails.js</li>
+        <li><strong>cloud.js</strong> - Dynamically-generated SDK for handling requests from the front-end to the actions in your Sails app. (More info on usage below.)</li>
+        <li><a target="_blank" href="https://www.mailgun.com/"><strong>Mailgun</strong></a>* - Emails</li>
+        <li><a target="_blank" href="https://stripe.com/docs"><strong>Stripe</strong></a>* - Payments</li>
+      </ul>
+      <p><small>* requires an API key</small></p>
+    </div>
+    <div class="q-and-a">
+      <hr/>
+<h4> ¿Cómo configuro un nuevo método para usar con cloud.js? </h4>
+      <p> Una vez que haya creado una acción de controlador y la haya agregado a sus rutas (consulte la <a target="_blank"
+    href="https://sailsjs.com/documentation/concepts/routes"> documentos de Sails.js para Más información sobre cómo
+    hacerlo </a>), solo hay unos pocos pasos para agregarlo a su <code> Cloud </code> SDK global: </p>
+      <ul>
+          <li> Reconstruye el SDK personalizado de esta aplicación usando <code> sails run scripts / rebuild-cloud-sdk
+    </code>. (Esto regenera automáticamente las definiciones de métodos en su archivo <code> asset / js /
+      cloud.setup.js </code> según sus rutas configuradas). </li>
+          <li> A continuación, puede llamar a cualquier acción nueva relevante como "métodos de nube" en su código de
+    interfaz así: <code> a la espera de Cloud.doSomething.with ({…}) </code> </li>
+        </ul>
+    </div>
+    <div class="q-and-a">
+        
+  <hr />
+        <h4> ¿Cómo registro una nueva página con parasails.js? </h4>
+        <p> Para generar archivos para una nueva página (por ejemplo, "descripción general de hoteles"), ejecute: </p>
+        <p> <code> las velas generan la página de vista general de hoteles </code> </p>
+        <p> Luego puede agregar una ruta para la nueva acción de vista para que sea accesible desde el navegador. Por
+    ejemplo: </p>
+        <p> <code> 'GET / hotels': {action: 'view-hotels-overview'} </code> </p>
+        <p> <small> Para registrar una nueva página sin el generador, asegúrese de que el elemento de nivel superior de
+      la vista que desea registrar tenga una propiedad <code> id </code> (por ejemplo, <code> & lt; div id =
+        "mi-nueva-página" & gt; ... & lt; / div & gt; </code>). Luego, cree un nuevo archivo javascript e incluya <code>
+        parasails.registerPage ('my-new-page', {/ * opciones para la instancia de Vue.js * /}) </code>. Para obtener
+      ejemplos más completos, busque en <code>assets/js/pages/</code>.</small> </p>
+      </div>
+    <div class="q-and-a">
+        
+  <hr />
+        <h4> ¿Cómo me implemento en Heroku? </h4>
+        <p> En su <a target="_blank" href="https://dashboard.heroku.com"> panel Heroku </a>, configure su aplicación
+    para que se despliegue automáticamente desde el <code> despliegue </code> Rama del repositorio GitHub de este
+    proyecto. Luego, desde la línea de comandos, ejecute <code> sails run deploy </code>. </p>
+        <p> Para obtener más sugerencias de implementación, <a href="https://sailsjs.com/documentation/concepts/deployment">
+      haga clic aquí </a>. </p>
+      </div>
+    <div class="q-and-a">
+        
+  <hr />
+        <h4> ¿Tengo que alojar en Heroku? </h4>
+        <p> De ninguna manera! Puede implementar su aplicación <a target="_blank" href="https://sailsjs.com/documentation/concepts/deployment/hosting">
+      en cualquier lugar que admita Node.js </a>. </p>
+      </div>
+    <div class="q-and-a">
+        
+  <hr />
+        <h4> ¿Cómo verifico las direcciones de correo electrónico de mi usuario? </h4>
+        <p> De forma predeterminada, la verificación del correo electrónico no es necesaria para el registro, ni cuando
+    un usuario existente cambia su dirección de correo electrónico desde la página de su cuenta. Para habilitar un paso
+    de verificación de correo electrónico para estas dos acciones, abra <code> config / custom.js </code> y cambie
+    <code> verifyEmailAddresses: false </code> a <code> verifyEmailAddresses: true </code>. / p>
+        </div>
+    <div class="q-and-a">
+        
+  <hr />
+        <h4> ¿Cómo termino de configurar Mailgun? </h4>
+        <p> Para usar Mailgun, deberá <a target="_blank" href="https://www.mailgun.com/"> registrarse para obtener una
+      cuenta </a>. (Si bien este <em> es </em> un servicio pagado con niveles de uso más altos, debería poder usar
+    Mailgun tanto como sea necesario en el desarrollo sin tener que proporcionar ninguna información de la tarjeta de
+    crédito). </p>
+        <p> Después de crear una cuenta, deberás agregar tu dominio de Mailgun y el secreto de la API a tu
+    configuración personalizada. (En desarrollo, esto será en <code> config / custom.js </code>, o en un archivo <code>
+      local.js </code> que agregue a su carpeta <code> config / </code> . Para su despliegue de producción o de
+    programación, querrá establecerlas utilizando las variables de entorno del sistema (también conocidas como
+    "variables de configuración" en Heroku). </p>
+        <p> Si ya tienes un dominio para tu aplicación, puedes seguir las instrucciones de Mailgun para configurar un
+    dominio de envío. </p>
+        <p> De lo contrario, para enviar correos electrónicos desde esta aplicación <em> sin </em> configurar un
+    dominio de envío, puede usar el dominio de sandbox & amp; prueba API secreta que viene con tu cuenta de Mailgun.
+    Solo asegúrese de configurar primero los destinatarios autorizados para su dominio de sandbox, o habrá errores en
+    los puntos finales que intentan enviar correos electrónicos. </p>
+      </div>
+    <div class="q-and-a">
+        
+  <hr />
+        <h4> ¿Cómo termino de configurar Stripe? </h4>
+        <p> Para usar Stripe para el procesamiento de pagos de su aplicación, deberá <a target="_blank" href="https://stripe.com">
+      registrarse para obtener una cuenta </a>. </p>
+        <p> Una vez que tenga una cuenta, deberá incluir sus claves secreta y publicables en la configuración
+    personalizada de su aplicación como <code> sails.config.custom.stripePublishableKey </code> y <code>
+      sails.config.custom. StripeSecret </code>. En desarrollo, puede agregar sus claves de prueba a <code> config /
+      custom.js </code>, o en un archivo <code> local.js </code> que agregue a su <code> config / </code> carpeta. </p>
+        <p> En su despliegue de producción o de programación, querrá establecer sus claves API utilizando las variables
+    de entorno del sistema (también conocidas como "variables de configuración" en Heroku), y lo hará</em></strong></p>
+<p>Elegimos a Stripe porque es el procesador de pagos más fácil de integrar en la industria. Sus tarifas son casi las
+  mismas <a target="_blank" href="https://stackshare.io/stripe/alternatives"> como las de sus competidores </a>, pero
+  incluso si ese no fuera el caso, el enfoque de Stripe en desarrollador la felicidad probablemente lo compensaría.
+  Stripe procesa pagos, pagos y más para <a target="_blank" href="https://stripe.com/us/customers"> cientos de miles de
+    empresas </a> en todo el mundo. </p>
+      <p> De forma predeterminada, las funciones relacionadas con la facturación se deshabilitan automáticamente si no
+  tiene una clave de publicación Stripe & amp; clave secreta en su configuración personalizada (<code>
+    sails.config.custom.stripePublishableKey </code> y <code> sails.config.custom.stripeSecret </code>,
+  respectivamente). Su aplicación no se verá afectada negativamente o aparecerá rota; simplemente tendrá algún código
+  extraño en algunos lugares. Si no anticipa la integración de las funciones de facturación en su aplicación y desea
+  eliminar este código por completo, puede realizar los siguientes cambios: </p>
+      <ul>
+          <li> En la definición del modelo <code> User </code> en <code> api / models / User.js </code>, elimine <code>
+      stripeCustomerId </code>, <code> billingCardBrand </code> , <code> billingCardLast4 </code>, <code>
+      billingCardExpMonth </code> y <code> billingCardExpYear </code> definiciones de atributos. </li>
+          <li> En el controlador de registro en <code> api / controllers / entrance / signup.js </code>:
+              <ul>
+                  <li> Elimine la línea en la parte superior que requiere la dependencia de Stripe </li>
+                  <li> Elimine el bloque de código que crea un cliente Stripe. (Si tiene problemas para encontrar dónde
+        ocurre esto, asegúrese de leer los comentarios). </li>
+                  <li> En la llamada a <code> User.create () </code>, elimine la propiedad <code> stripeCustomerId
+        </code>. </li>
+                </ul>
+            </li>
+          <li> En el controlador de correo electrónico de confirmación en <code> api / controllers / entrance /
+      confirm-email.js </code>:
+              <ul>
+                  <li> Quite la línea en la parte superior que requiere la dependencia de Stripe. </li>
+                  <li> Elimine el bloque de código que maneja la creación / actualización de un cliente de Stripe. (Si
+        tiene problemas para encontrar dónde ocurre esto, asegúrese de leer los comentarios). </li>
+                </ul>
+            </li>
+          <li> Quite el punto final de la tarjeta de facturación de actualización y todas las referencias a él haciendo
+    lo siguiente:
+              <ul>
+                  <li> Borre el archivo en <code> api / account / update-billing-card.js </code>. </li>
+                  <li> En <code> config / route.js </code>, elimine la configuración de ruta para <code> 'PUT / api /
+          v1 / account / update-billing-card' </code>. </li>
+                  <li> En <code> asset / js / cloud.setup.js </code>, elimine el método <code> updateBillingCard </code>.
+      </li>
+                  <li> En <code> asset / js / pages / account / my-account.page.js </code>, elimine el método <code>
+          clickStripeCheckoutButton </code>. </li>
+                  <li> En <code> views / pages / account / my-account.ejs </code>, elimine el HTML relacionado con la
+        facturación. </li>
+                </ul>
+            </li>
+          <li> En <code> api / hooks / custom / index.js </code>, elimina las advertencias relacionadas con Stripe.
+  </li>
+          <li> En <code> api / hooks / custom / index.js </code>, quite <code>
+      sails.config.custom.enableBillingFeatures =! isMissingStripeConfig; </code>. </li>
+        </ul>
+    </div>
+    <div class="q-and-a">
+        
+  <hr />
+        <h4> ¿Dónde puedo obtener más ayuda? </h4>
+        <p> Si tiene problemas, a menudo puede encontrar la respuesta en la <a target="_blank" href="http://sailsjs.com/documentation">
+      documentación de Sails.js </a>. Si no está seguro de cómo proceder o está completamente perplejo, asegúrese de
+    consultar los <a target="_blank" href="http://sailsjs.com/support"> los últimos recursos disponibles </a>. < / p>
+</div>
+  </div>
+</div>
+<%- /* Expose locals as `window.SAILS_LOCALS` :: */ exposeLocalsToBrowser() %>

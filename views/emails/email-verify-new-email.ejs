@@ -1,0 +1,12 @@
+<% /* Note: This is injected into `views/layouts/layout-email.ejs` */ %>
+<p style="margin-bottom: 25px;">Querido <%= fullName %>,</p>
+<p style="margin-bottom: 25px;">Recientemente solicitó una actualización de la dirección de correo electrónico de su
+  cuenta. Para verificar su nuevo correo electrónico, haga clic en el siguiente botón:</p>
+<div style="margin-bottom: 25px; text-align: center;">
+  <a style="background-color: #28AFB0; display: inline-block; font-size: 1.1em; color: #fff; padding: 10px 35px 10px; font-weight: 500; text-decoration: none; border-radius: 7px;" href="<%= url.resolve(sails.config.custom.baseUrl,'/email/confirm')+'?token='+encodeURIComponent(token) %>">Confirm email</a>
+</div>
+<p style="margin-bottom: 25px;">Si tiene algún problema, intente pegar este enlace en su navegador: <a style="color: #28AFB0; word-wrap: break-word;"
+    href="<%= url.resolve(sails.config.custom.baseUrl,'/email/confirm')+'?token='+encodeURIComponent(token) %>">
+    <%= url.resolve(sails.config.custom.baseUrl,'/email/confirm')+'?token='+encodeURIComponent(token) %></a></p>
+<p style="margin-bottom: 5px;">Atentamente,</p>
+<p style="margin-top: 0px;">HiperSoft</p>

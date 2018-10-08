@@ -1,0 +1,144 @@
+<div id="homepage" :class="[heroHeightSet ? '' : 'uninitialized']" v-cloak>
+  <div class="hero d-flex flex-column justify-content-center" full-page-hero>
+    <div class="container text-center">
+      <div class="hero-image">
+        <img class="sky" alt="The sky above the ocean" src="/images/hero-sky.png"/>
+        <img class="cloud cloud-1" alt="A grayish-blue cloud" src="/images/hero-cloud.png"/>
+        <img class="cloud cloud-2" alt="Another grayish-blue cloud" src="/images/hero-cloud.png"/>
+        <img class="ship" alt="A ship hovering a few feet over the surface of the water, bearing a flagpole with the Sails.js logo" src="/images/hero-ship.png"/>
+        <img class="water" alt="The shadow of the floating ship on the water" src="/images/hero-water.png"/>
+      </div>
+      <h1 class="display-4">Un nuevo proyecto en <strong>Sails.js</strong>.</h1>
+      <div>
+        <div class="more-info-text" @click="clickHeroButton()">
+          <div class="text">Dive in</div>
+          <div class="icon">&darr;</div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="about-wrapper" role="scroll-destination">
+    <div class="container">
+      <div class="about text-center">
+<h3>Este es su proyecto recién generado + algunos extras. </h3>
+        <p> En nuestro tiempo <a target="_blank" href="https://sailsjs.com/studio"> creando aplicaciones para clientes
+  </a>, nos encontramos relanzando algunas de las mismas características clave Una y otra vez entre proyectos. Así que
+  escogimos algunas de las cosas que seguían apareciendo, implementamos nuestras propias soluciones para ellos y luego
+  las incluimos en esta aplicación de inicio gratuita y de código abierto. ¡Esperamos que te ayude tanto como a
+  nosotros! </p>
+      </div>
+      <div class="features text-center">
+          <div class="row">
+              <div class="feature col-sm">
+                  <div class="icon">
+                      <i class="fa fa-envelope"> </i>
+                    </div>
+                  <h4> Correos electrónicos </h4>
+                  <p class="text-muted"> Soporte integrado para correos electrónicos internos del <a href="/contact">
+          formulario de contacto </a>, así como correos electrónicos transaccionales para los usuarios. </p>
+                </div>
+              <div class="col-sm feature">
+                  <div class="icon">
+                      <i class="fa fa-lock"> </i>
+                    </div>
+                  <h4> Autenticación </h4>
+                  <p class="text-muted"> Listo para ir, personalizable <a href="/signup"> regístrate </a>, <a href="/login">
+          inicio de sesión </a>, y < a href="/password/forgot"> recuperación de contraseña </a> fluye para sus
+          usuarios. </p>
+                </div>
+              <div class="col-sm feature">
+                  <div class="icon">
+                      <i class="fa fa-credit-card"> </i>
+                    </div>
+                  <h4> Facturación </h4>
+                  <p class="text-muted"> Conecte su cuenta de Stripe para administrar clientes y fuentes de pago. </p>
+                </div>
+            </div>
+          <a class="btn btn-outline-info mt-5" href="/faq"> Más información </a>
+        </div>
+    </div>
+  </div>
+  <div class="container">
+      <div class="setup">
+          <h3 class="text-center"> Cómo empezar:</h3>
+      <div class="step">
+        <div class="step-image">
+        <img alt="computer with email symbol on screen" src="/images/setup-email.png"/>
+        </div>
+<h5>Configura tu marca y contenido </h5>
+        <p> Esta aplicación de inicio incluye varias plantillas de página diferentes (incluida la que estás leyendo en
+  este momento) que puedes cambiar tanto o tan poco como quieras. Si hay alguna página que no necesite, simplemente
+  elimínela. </p>
+        <p> Para comenzar, realice una búsqueda/reemplazo global en este proyecto para las apariciones de <code>
+    HiperSoft </code> y reemplácelas todas con el nombre real de su aplicación o plataforma ("Sharepoint"). Luego,
+  vuelva a hacer lo mismo para reemplazar <code> NEW_APP_COMPANY </code> con el nombre real de su organización
+  ("Microsoft Corporation"). </p>
+        <p> <small> Esta aplicación también incluye los <a href="/legal/terms"> Términos de uso </a> y <a href="/legal/privacy">
+      Política de privacidad </a> predeterminados. Queremos facilitar que las aplicaciones sean transparentes sobre los
+    derechos y la privacidad de sus usuarios. Pero somos desarrolladores, no abogados; y esto es <em> definitivamente
+      no es un consejo legal </em>. Antes de ponerlo en funcionamiento, asegúrese de reemplazar estos documentos de
+    ejemplo con las políticas de su propia empresa y <a href="https://en.wikipedia.org/wiki/Counsel" target="_blank">
+      busque un abogado </a> para asistencia si necesita diseñar nuevos términos desde cero. </small> </p>
+      </div>
+      <div class="step">
+          <div class="step-image">
+            <img alt="computadora con el ícono de tarjeta de crédito en pantalla" src="/images/setup-payment.png"/>
+            </div>
+          <h5> Configurar integraciones </h5>
+          <p> Para que esta aplicación envíe correos electrónicos automáticos, deberá crear una cuenta <a target="_blank"
+      href="https://mailgun.com"> Mailgun </a>. Luego, en <code> config/custom.js </code>, configure lo siguiente:
+  </p>
+          <div class="card bg-light mb-4">
+              <div class="card-body">
+      <pre> <code> <span class = "text-muted">//Destinatario de los mensajes del formulario de contacto </span>
+internalEmailAddress: my.email@example.com,
+
+<span class = "text-muted">//Para correos electrónicos salientes </span>
+deEmailAddress: 'noreply@example.com',
+fromName: 'The Sails.js Team',
+
+<span class = "text-muted">//Configuración del enlace de correo </span>
+mailgunDomain: 'transactional-mail.example.com',
+mailgunSecret: 'key-testkeyb183848139913858e8abd9a3' </code> </pre>
+                </div>
+            </div>
+          <p> Para habilitar el soporte para las funciones de facturación, deberá crear una cuenta de <a target="_blank"
+      href="https://stripe.com"> Stripe </a>, luego incluir sus credenciales de prueba, como : </p>
+          <div class="card bg-light mb-4">
+              <div class="card-body">
+      <pre> <code> <span class = "text-muted">//Credenciales de banda </span>
+stripePublishableKey: 'pk_test_Zzd814nldl91104qor5911gjald',
+stripeSecret: 'sk_test_Zzd814nldl91104qor5911gjald' </code> </pre>
+                </div>
+            </div>
+          <p> <small> Si su aplicación no necesita procesamiento de pagos, seguirá funcionando sin la configuración de
+      Stripe. En este caso, todas las referencias a la facturación solo se omitirán de la IU. </small> </p>
+</div>
+      <div class="step">
+        <div class="step-image">
+        <img alt="computer with sails logo on screen" src="/images/setup-customize.png"/>
+        </div>
+<h5>Personalizar </h5>
+        <p> Una vez que se realiza la configuración inicial, está listo para comenzar a desarrollar el resto de su
+  aplicación. </p>
+        <p> Trabajamos arduamente para hacer que la estructura de esta aplicación de inicio sea consistente y que sus
+  archivos sean lo más básicos posible, por lo que es fácil agregar nuevas páginas y lógica de negocios siguiendo las
+  convenciones que configuramos. Si tiene problemas, eche un vistazo a <a href="/faq"> su nueva página de Preguntas
+    frecuentes </a>, que cubre las herramientas que usamos y cómo personalizarlas. Para una inmersión más profunda,
+  consulte la documentación de Sails <a href="https://sailsjs.com/documentation"> </a> y la asistencia de <a href="https://sailsjs.com/support">
+    </a> páginas. </p>
+      </div>
+    </div>
+    
+<hr/>
+    <div class="pep-talk text-center">
+        <h3> Vamos a trabajar. </h3>
+        <p> Creemos que este proyecto es un punto de partida bastante conveniente, pero por supuesto no hay una
+    solución única para todos. La buena noticia es que esta aplicación está en tus manos ahora, para que puedas saltar
+    a los archivos y adaptarla a tus necesidades. Cambia algún código alrededor. Romper cosas. Arreglalo. Y sobre todo:
+    <strong> haz algo que la gente quiera usar </strong>. </p>
+        <p> <span class="text-muted"> Atentamente; </span> <a href="https://sailsjs.com/about"> El equipo de Sails</a></p>
+    </div>
+  </div>
+</div>
+<%-/* Expose locals as `window.SAILS_LOCALS` :: */exposeLocalsToBrowser() %>

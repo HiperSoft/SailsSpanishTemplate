@@ -1,0 +1,51 @@
+<div id="signup" v-cloak>
+  <div class="container" v-if="!cloudSuccess">
+    <h1 class="text-center">Crear cuenta</h1>
+    <div class="signup-form">
+      <p class="text-center">Let's get started! Becoming a member is free and only takes a few minutes.</p>
+      <hr/>
+      <ajax-form action="signup" :syncing.sync="syncing" :cloud-error.sync="cloudError" @submitted="submittedForm()" :handle-parsing="handleParsingForm">
+        <div class="form-group">
+          <label for="full-name">Nombre completo</label>
+          <input class="form-control" id="full-name" type="text"  :class="[formErrors.fullName ? 'is-invalid' : '']" v-model.trim="formData.fullName" placeholder="Sturgis P. Sturgeon" autocomplete="name" focus-first>
+          <div class="invalid-feedback" v-if="formErrors.fullName">Please enter your full name.</div>
+        </div>
+        <div class="form-group">
+          <label for="email-address">Dirección de correo electrónico</label>
+          <input class="form-control" id="email-address" type="email"  :class="[formErrors.emailAddress ? 'is-invalid' : '']" v-model.trim="formData.emailAddress" placeholder="sturgeon@example.com" autocomplete="email">
+          <div class="invalid-feedback" v-if="formErrors.emailAddress">Favor de ingresar un email valido.</div>
+        </div>
+        <div class="form-group">
+          <label for="password">Elige una contraseña</label>
+          <input class="form-control" id="password" type="password"  :class="[formErrors.password ? 'is-invalid' : '']" v-model.trim="formData.password" placeholder="••••••••" autocomplete="new-password">
+          <div class="invalid-feedback" v-if="formErrors.password">Please enter a password.</div>
+        </div>
+        <div class="form-group">
+          <label for="confirm-password">Confirme la contraseña</label>
+          <input class="form-control" id="confirm-password" type="password"  :class="[formErrors.confirmPassword ? 'is-invalid' : '']" v-model.trim="formData.confirmPassword" placeholder="••••••••" autocomplete="new-password">
+          <div class="invalid-feedback" v-if="formErrors.confirmPassword">Las contraseñas no coinciden, favor de validar.</div>
+        </div>
+        <div class="form-group form-check">
+          <input class="form-check-input" id="terms-agreement" type="checkbox" v-model="formData.agreed">
+          <label for="terms-agreement" class="form-check-label" :class="[formErrors.agreed ? 'text-danger' : '']">He leido los <a target="_blank" href="/terms">terminos y condiciones</a>.</label>
+        </div>
+        <p class="text-danger" v-if="cloudError==='emailAlreadyInUse'"><small>Ya existe una cuenta con este correo electrónico. Si olvidaste tu contraseña la puedes recuperar <a href="password/forgot">aqui</a>.</small></p>
+        <p class="text-danger" v-else-if="cloudError"><small>Ha ocurrido un problema de conexión, vuelva a intentarlo o <a href="/support">contacte al soporte</a> si el problema continua.</small></p>
+        <div class="form-group">
+          <ajax-button type="submit" :syncing="syncing" class="btn-dark btn-lg btn-block">Crear cuenta</ajax-button>
+        </div>
+      </ajax-form>
+      <p class="text-center">¿Ya tienes cuenta? <a href="/login">Ingresa</a></p>
+    </div>
+  </div>
+  <div class="container" v-if="cloudSuccess">
+    <h1 class="text-center">¡Te enviamos un correo!</h1>
+    <div class="success-message">
+      <hr/>
+      <p>Tu cuenta está casi lista, solo debes darle clic al link que enviamos al correo: <strong>{{formData.emailAddress}}</strong>.</p>
+      <p>(Puedes acceder a inicio, pero no podras acceder a ninguna otra función hasta que verifiquemos tu correo.)</p>
+      <p><a class="btn btn-outline-info" href="/">ir a inicio</a></p>
+    </div>
+  </div>
+</div>
+<%- /* Expose locals as `window.SAILS_LOCALS` :: */ exposeLocalsToBrowser() %>
